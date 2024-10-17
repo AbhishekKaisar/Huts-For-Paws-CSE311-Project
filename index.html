@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huts for Paws</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        header {
+            background-color: #d5badb;
+            padding: 25px;
+            color: #fcfafa;
+            font-size: 30px;
+        }
+
+        .logo img {
+            width: 120px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: #fdfdfd;
+            color: #6b2ca6;
+            border-radius: 5px;
+        }
+
+        .user-name {
+            font-weight: bold;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: #fff;
+            border: none;
+            cursor: pointer;
+            height: 20px;
+            width: 60px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 5px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px;
+            background-color: #fff;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: #004600;
+        }
+
+        .hero .highlight {
+            color: #6b2ca6;
+            font-weight: bold;
+        }
+
+        .hero p {
+            margin-top: 20px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            margin-top: 20px;
+        }
+
+        .cta-buttons .btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            display: block;
+        }
+
+        .btn.adopt {
+            background-color: #6b2ca6;
+            color: #fff;
+        }
+
+        .btn.rehome {
+            background-color: #fff;
+            color: #6b2ca6;
+            border: 2px solid #6b2ca6;
+        }
+
+        .image-container img {
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Black background with transparency */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            display: flex;
+            width: 620px;
+            height: 535px;
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .image-section {
+            width: 312px;
+            background: url("puppy-image.png") no-repeat center center;
+            background-size: cover;
+            position: relative;
+        }
+
+        .image-section .overlay-text {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-section {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .form-section h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .form-section input[type="text"],
+        .form-section input[type="email"],
+        .form-section input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .form-section input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .form-section label {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .form-section .terms {
+            margin-bottom: 20px;
+        }
+
+        .form-section button {
+            width: 100%;
+            padding: 12px;
+            background-color: #6a5acd;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .form-section p {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .form-section a {
+            color: #6a5acd;
+            text-decoration: none;
+        }
+
+        .blur {
+            filter: blur(8px); /* Apply blur effect */
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="pics/Logo.png" alt="Huts for Paws">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Adopt</a></li>
+                <li><a href="#">Rehome</a></li>
+                <li><a href="#">Care Guide</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+    <main id="main-content">
+        <section class="hero">
+            <h1>Give a New Life to <span class="highlight">Furry Friends</span></h1> <br>
+            <p>Pet adoption and rehoming are both vital aspects of animal welfare, offering hope and a fresh start to pets in need.<br>
+               Open your heart and your home to a shelter pet.</p> 
+
+            <div class="image-container">
+                <img src="pics/landing.jpg" alt="Cat and Dog">
+            </div>
+
+            <div class="cta-buttons">
+                <a href="#" class="btn adopt" id="adopt-now">Adopt Now</a>
+                <a href="#" class="btn rehome" id="rehome-now">Rehome Now</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Create Account Modal -->
+    <div id="create-account-modal" class="modal">
+        <div class="modal-content">
+            <div class="image-section">
+                <div class="overlay-text">Register Now</div>
+            </div>
+            <div class="form-section">
+                <h2>Create your account</h2>
+                <form>
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="E-mail" required>
+                    <input type="password" placeholder="Password" required>
+                    <div class="terms">
+                        <input type="checkbox" required>
+                        <label for="terms">I agree to all <a href="#">Terms & Conditions</a></label>
+                    </div>
+                    <button type="submit">Create Account</button>
+                </form>
+                <p>Already have an account? <a href="#">Sign in</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById("create-account-modal");
+        const adoptBtn = document.getElementById("adopt-now");
+        const rehomeBtn = document.getElementById("rehome-now");
+        const mainContent = document.getElementById("main-content");
+
+        adoptBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+            modal.style.display = "flex";
+            mainContent.classList.add("blur");
+        });
+
+        rehomeBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+            modal.style.display = "flex";
+            mainContent.classList.add("blur");
+        });
+
+        window.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+                mainContent.classList.remove("blur");
+            }
+        });
+    </script>
+</body>
+</html>
