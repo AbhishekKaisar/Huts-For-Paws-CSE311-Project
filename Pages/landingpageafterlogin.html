@@ -33,7 +33,7 @@
         header nav a {
             margin: 0 10px;
             text-decoration: none;
-            color: #4a4a8a;
+            color: #333;
             font-weight: bold;
         }
 
@@ -44,8 +44,8 @@
         .auth input[type="text"] {
             padding: 5px;
             margin-right: 10px;
-            border: 1px solid #ccc; /* Add a border */
-            border-radius: 4px; /* Match button border radius */
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
         }
 
         .auth button {
@@ -143,20 +143,87 @@
             margin-bottom: 10px;
             color: #5e3baf;
         }
+
+        .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #fff;
+    border: rgb(72, 4, 72);
+    border-width: 15px;
+    cursor: pointer;
+    border-radius: 5%;
+
+
+    height: 20px;
+width: 60px;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #fdfdfd;
+    color: #6b2ca6;
+    border-radius: 5px;
+    margin-right: 20px;
+    border: #6b2ca6;
+    padding-left: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: #6b2ca6;
+}
+
+.user-name {
+    font-weight: lighter;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1;
+    border-radius: 5%;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 5px;
+    text-decoration: solid;
+    color: #5e3baf}
+
     </style>
 </head>
 <body>
     <header>
-        <div class="logo"><img src="pics/Logo.png"></div>
+        <div class="logo"><img src="pics/Logo.png"> Huts for Paws</div>
         <nav>
-            <a href="Pages/for_adoption.html">Adopt</a>
+            <a href="#adopt">Adopt</a>
             <a href="#rehome">Rehome</a>
             <a href="#care">Care Guide</a>
             <a href="#about">About Us</a>
         </nav>
-        <div class="auth">
-            <button onclick="window.location.href='Pages/login.html'">Login</button>
-            <button onclick="window.location.href='Pages/register.html'">Register</button>
+        <div class="user-menu">
+            <span class="user-name">Samanta Smith</span>
+            <div class="dropdown">
+                <button class="dropbtn">Home</button>
+                <div class="dropdown-content">
+                    <a href="#">Overview</a>
+                    <a href="#">Profile</a>
+                    <a href="#">Rehome Account</a>
+                    <a href="#">Favourites</a>
+                    <a href="#">Messages</a>
+                    <a href="#">Log Out</a>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -165,8 +232,8 @@
             <h1>Give a New Life to <span>Paw Friends</span></h1>
             <p>Pet adoption and rehoming are both vital aspects of animal welfare, offering hope and a fresh start for pets in need. Open your heart and your home to a shelter pet.</p>
             <div class="hero-buttons">
-                <button onclick="window.location.href='Pages/for_adoption.html'">Adopt Now</button>
-                <button onclick="window.location.href='Pages/rehome.html'">Rehome Now</button>
+                <button>Adopt Now</button>
+                <button>Rehome Now</button>
             </div>
         </div>
         <div class="hero-image">

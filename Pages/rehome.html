@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huts for Paws</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f4f4f9;
+            padding: 15px 30px;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #5e3baf;
+        }
+
+        header nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: thin;
+        }
+
+        header nav a:hover {
+            color: #5e3baf; 
+        }
+
+       
+
+
+        .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #fff;
+    border: rgb(72, 4, 72);
+    border-width: 15px;
+    cursor: pointer;
+    border-radius: 5%;
+
+
+    height: 20px;
+width: 60px;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #fdfdfd;
+    color: #6b2ca6;
+    border-radius: 5px;
+    margin-right: 20px;
+    border: #6b2ca6;
+    padding-left: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: #6b2ca6;
+}
+
+.user-name {
+    font-weight: lighter;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1;
+    border-radius: 5%;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 5px;
+    text-decoration: solid;
+    color: #5e3baf}
+
+
+    .container {
+    max-width: 900px;
+    margin: 2em auto;
+    padding: 1em;
+    text-align: center;
+   
+}
+
+
+h1 {
+    color: #2b2b2b;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+   
+}
+
+.r-animal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #f4f4f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: left;
+    align-items: flex-start;
+}
+
+.r-animal-info div {
+    margin-bottom: 10px;
+}
+
+.r-animal-info label {
+    font-weight: bold;
+    color: #5e3baf;
+    margin-right: 10px;
+}
+
+.r-animal-info input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.r-animal-info select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+
+
+.r-animal-info input[type="radio"] {
+    margin-left: 10px;
+}
+
+.r-animal-info h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+
+.account-info {
+    background-color: #f3f3f3;
+    padding: 1em;
+    width: 45%;
+    border-radius: 8px;
+    margin-top: 40px;
+    margin-bottom: 20px; }
+
+
+    .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+}
+
+button {
+    padding: 0.5em 2em;
+    border: none;
+    color: #fff;
+    background-color: #7b69e3;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #5a4bb8;
+}
+
+footer {
+    background-color: #7b69e3;
+    color: #fff;
+    padding: 2em;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+footer h3 {
+    margin-bottom: 0.5em;
+} 
+    
+
+
+
+</style>
+
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="pics/Logo.png"> Huts for Paws</div>
+        <nav>
+            <a href="#adopt">Adopt</a>
+            <a href="#rehome">Rehome</a>
+            <a href="#care">Care Guide</a>
+            <a href="#about">About Us</a>
+        </nav>
+        <div class="user-menu">
+            <span class="user-name">Samanta Smith</span>
+            <div class="dropdown">
+                <button class="dropbtn">Home</button>
+                <div class="dropdown-content">
+                    <a href="#">Overview</a>
+                    <a href="#">Profile</a>
+                    <a href="#">Rehome Account</a>
+                    <a href="#">Favourites</a>
+                    <a href="#">Messages</a>
+                    <a href="#">Log Out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Rehome a Pet</h1>
+            <p>Please note, all these details must be complete in order to apply to rehome a pet.</p>
+            
+            <div class="form-container">
+                <div class="account-info">
+                    <img src="pics/icon.png">
+                    <h3>Account Info</h3>
+                    <p>Email/Username: SamantaSmith@gmail.com</p>
+                    <p>First name: Samanta</p>
+                    <p>Last name: Smith</p>
+                </div>
+            </div>
+
+            <h2>Animal Information</h2> 
+            <div class="r-animal-info">
+                <div>
+                    <label>Which animal are you rehoming?</label><br>
+                    <input type="checkbox" id="cat" name="animal" value="Cat">
+                    <label for="cat"> Cat</label><br>
+                    
+                    <input type="checkbox" id="dog" name="animal" value="Dog" required>
+                    <label for="dog"> Dog</label><br>
+                </div>
+               
+                <div>
+                    <label for="animalAgeYears">Age of Animal (in years):</label>
+                    <select id="animalAgeYears" name="animalAgeYears">
+                        <option value="">Select age in years</option>
+                        <option value="1">1 year</option>
+                        <option value="2">2 years</option>
+                        <option value="3">3 years</option>
+                        <option value="4">4 years</option>
+                        <option value="5">5 years</option>
+                        <option value="6">6 years</option>
+                        <option value="7">7 years</option>
+                        <option value="8">8 years</option>
+                        <option value="9">9 years</option>
+                        <option value="10">10 years</option>
+                        <option value="11">11 years</option>
+                        <option value="12">12 years</option>
+                        <option value="above12">above 12 years</option>
+
+                    </select>
+                </div>
+
+                <h3> Eating habits: </h3>
+                    
+
+                <div>
+  <div>
+ <input type="checkbox" id="eh1" name="eh1" />
+    <label for="eh1">Fish</label>
+  </div>
+
+  <div>
+  <input type="checkbox" id="eh2" name="eh2" />
+    <label for="eh2">Rice </label>
+  </div>
+
+  <div>
+    <input type="checkbox" id="eh3" name="eh3" />
+    <label for="eh3">Chicken</label>
+  </div>
+
+  <div>
+  <input type="checkbox" id="eh4" name="eh4" />
+    <label for="eh4"> Pumpkin </label>
+  </div>
+
+  <div>
+    <input type="checkbox" id="eh5" name="eh5" />
+    <label for="eh5">Dry food</label>
+  </div>
+
+
+</div>
+
+
+<h3> Details about animal: </h3>
+<label>Is your animal potty trained?
+    <input type="radio" name="pottytrain" value="yes"> Yes
+    <input type="radio" name="pottytrain" value="no"> No
+</label> 
+
+<!---
+<select required>
+    <option value="">How is it potty trained?</option>
+    <option value="litter">Litter</option>
+    <option value="newspaper">Newspaper</option>
+    <option value="Sand">Sand</option>
+     <option value="newspaper">Newspaper</option>
+</select> lmk if we shiuld add this or would data be complicated-->
+
+
+<label>Is the animal spayed/neutered?
+    <input type="radio" name="cat-proof" value="yes"> Yes
+    <input type="radio" name="cat-proof" value="no"> No
+</label>
+
+<label>Is the animal vaccinated?
+    <input type="radio" name="cat-proof" value="yes"> Yes
+    <input type="radio" name="cat-proof" value="no"> No
+</label>
+
+<br>
+
+<label> What breed are they:? </label>
+<select class="breed" required>
+    <option value="">select breed</option>
+    <option value="deshi">Deshi</option>
+    <option value="mixed">Mixed</option>
+    <option value="bideshi">Bideshi</option>
+     
+</select>
+<br>
+<label> What colour are they: </label>
+<select  class="colour "required>
+    <option value="">select colour</option>
+    <option value="white">White</option>
+    <option value="brown">Brown</option>
+    <option value="Mixed">Mixed</option>
+    <option value="black">Black</option>
+
+     
+</select>
+
+            </div>
+        
+
+
+            <label>
+                <input type="checkbox" required>
+                I have read and agree to the Terms and Privacy Policy
+            </label>
+            
+            <div class="buttons">
+                <button type="button">Back</button>
+                <button type="submit">Continue</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-info">
+        <div>
+        
+            <p>Adopt a pet</p>
+            <p>Rehome a pet</p>
+        </div>
+        <div>
+            <h3>Contact Us</h3>
+            <p>123 Main Street, Anytown, USA</p>
+            <p>+1 (555) 123-4567</p>
+            <p>FurryFriendsSupport@gmail.com</p>
+        </div>
+    </div>
+</footer>
+
+
+        
+    </body>
+</html>
