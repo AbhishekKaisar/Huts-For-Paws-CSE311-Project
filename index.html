@@ -1,10 +1,26 @@
+<?php
+session_start();
+
+// Simulated login check. Replace this with your actual login validation logic.
+$isLoggedIn = isset($_SESSION['user_id']); // Assuming 'user_id' is stored in session upon login.
+
+if (isset($_GET['logout'])) {
+    // Handle logout
+    session_destroy();
+    header("Location: index.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Huts for Paws</title>
     <style>
+        /* General Reset */
         * {
             margin: 0;
             padding: 0;
@@ -12,10 +28,12 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            color: #333;
-        }
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+}
 
+
+        /* Header */
         header {
             display: flex;
             justify-content: space-between;
@@ -30,22 +48,42 @@
             color: #5e3baf;
         }
 
+        .logo img {
+            max-width: 100px;
+            height: auto;
+        }
+
+        header nav {
+            justify-content: center;
+            flex: 1;
+            display: flex;
+        }
+
         header nav a {
+            display: inline-block;
+            padding: 10px 20px;
             margin: 0 10px;
+            background-color: #4a4a8a;
             text-decoration: none;
-            color: #4a4a8a;
+            color: rgba(255, 255, 255, 0.818);
             font-weight: bold;
+            text-align: center;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
         }
 
         header nav a:hover {
-            color: #5e3baf; /* Change color on hover */
+            background-color: #7359b0;
+            transform: scale(1.1);
         }
 
-        .auth input[type="text"] {
+        .auth {
             padding: 5px;
             margin-right: 10px;
-            border: 1px solid #ccc; /* Add a border */
-            border-radius: 4px; /* Match button border radius */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            display: inline-block;
+            position: relative;
         }
 
         .auth button {
@@ -53,20 +91,66 @@
             color: #fff;
             padding: 5px 10px;
             border: none;
-            border-radius: 4px;
+            border-radius: 5px;
             margin-left: 5px;
-            cursor: pointer; /* Pointer on hover */
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .auth button:hover {
-            background-color: #4a2f9e; /* Slightly darker on hover */
+            background-color: #7359b0;
+            transform: scale(1.1);
         }
 
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            z-index: 1;
+            border: 1px solid #ccc;
+            width: 150px;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 14px;
+            color: #333;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.2s ease;
+        }
+
+        .dropdown a:last-child {
+            border-bottom: none;
+            /* Remove bottom border for the last link */
+        }
+
+        .dropdown a:hover {
+            background-color: #f0f0f0;
+            color: #5e3baf;
+        }
+
+        /* Adjust dropdown visibility */
+        .dropdown.active {
+            display: block;
+        }
+
+        /* Hero Section */
         .hero {
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             padding: 40px;
-            background-color: #e6e1f7;
+            background-color: #e9e1f7;
         }
 
         .hero-content {
@@ -74,7 +158,7 @@
         }
 
         .hero-content h1 {
-            font-size: 2.5em;
+            font-size: 2.5cm;
             color: #333;
         }
 
@@ -87,26 +171,27 @@
             color: #666;
         }
 
-        .hero-buttons button {
+        .hero-content button {
             background-color: #5e3baf;
             color: #fff;
             padding: 10px 20px;
             margin-right: 10px;
             border: none;
             border-radius: 5px;
-            cursor: pointer; /* Pointer on hover */
+            cursor: pointer;
         }
 
-        .hero-buttons button:hover {
-            background-color: #4a2f9e; /* Slightly darker on hover */
+        .hero-content button:hover {
+            background-color: #4a2f9e;
+            transform: scale(1.2);
         }
 
         .hero-image img {
-            width: 800px;
-    height: 600px;
-          
+            width: 100%;
+            height: auto;
         }
 
+        /* Steps Section */
         .steps {
             text-align: center;
             padding: 40px;
@@ -145,32 +230,57 @@
         }
     </style>
 </head>
+
 <body>
     <header>
-        <div class="logo"><img src="pics/Logo.png"></div>
+        <div class="logo">
+            <img src="images/Logo.png" alt="Logo">
+        </div>
         <nav>
-            <a href="Pages/for_adoption.html">Adopt</a>
-            <a href="#rehome">Rehome</a>
-            <a href="#care">Care Guide</a>
-            <a href="#about">About Us</a>
+            <a href="#Adopt">Adopt</a>
+            <a href="#Rehome">Rehome</a>
+            <a href="#Care Guide">Care Guide</a>
+            <a href="#About Us">About Us</a>
         </nav>
         <div class="auth">
-            <button onclick="window.location.href='Pages/login.html'">Login</button>
-            <button onclick="window.location.href='Pages/register.html'">Register</button>
+            <button
+                onclick="window.location.href='http://localhost/htp2/login.php'">Login</button>
+            <button
+                onclick="window.location.href='http://localhost/htp2/register.php'">Register</button>
         </div>
+
+        <script>
+            // Dropdown toggle functionality
+            const loginButton = document.getElementById('loginButton');
+            const loginDropdown = document.getElementById('loginDropdown');
+
+            loginButton.addEventListener('click', () => {
+                loginDropdown.classList.toggle('active');
+            });
+
+            // Close dropdown when clicking outside
+            window.addEventListener('click', (event) => {
+                if (!loginButton.contains(event.target) && !loginDropdown.contains(event.target)) {
+                    loginDropdown.classList.remove('active');
+                }
+            });
+        </script>
     </header>
 
     <section class="hero">
         <div class="hero-content">
             <h1>Give a New Life to <span>Paw Friends</span></h1>
-            <p>Pet adoption and rehoming are both vital aspects of animal welfare, offering hope and a fresh start for pets in need. Open your heart and your home to a shelter pet.</p>
+            <p>Pet adoption and rehoming are vital aspects of animal welfare, offering hope and a fresh start for pets
+                in need. Open your heart and your home to a shelter pet.</p>
             <div class="hero-buttons">
-                <button onclick="window.location.href='Pages/for_adoption.html'">Adopt Now</button>
-                <button onclick="window.location.href='Pages/rehome.html'">Rehome Now</button>
+                <button
+                    onclick="window.location.href='http://localhost/htp2/login.php'">Adopt</button>
+                <button
+                    onclick="window.location.href='http://localhost/htp2/login.php'">Rehome</button>
             </div>
         </div>
         <div class="hero-image">
-            <img src="pics/image 167.png" alt="A happy dog and cat playing together">
+            <img src="Images/Dog & Cat.png" alt="Hero Image">
         </div>
     </section>
 
@@ -179,19 +289,24 @@
         <div class="step-container">
             <div class="step">
                 <div class="step-icon">
-                    <img src="pics/Vector.jpg">
+                    <img src="Images/group_add.png" alt="Step Icon">
                 </div>
                 <p>Set up your profile including photos in minutes</p>
             </div>
             <div class="step">
-                <div class="step-icon"><img src="pics/content_paste_search.png"></div>
+                <div class="step-icon">
+                    <img src="Images/Vector.png" alt="Search Icon">
+                </div>
                 <p>Describe your home and routine so animals can see if it’s right for their pet</p>
             </div>
             <div class="step">
-                <div class="step-icon"><img src="pics/home_work (1).jpg"></div>
+                <div class="step-icon">
+                    <img src="Images/content_paste_search.png" alt="Home Icon">
+                </div>
                 <p>Start your search!</p>
             </div>
         </div>
     </section>
 </body>
+
 </html>
