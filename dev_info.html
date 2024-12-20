@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Our Team</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f4f4f9;
+            padding: 15px 30px;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #5e3baf;
+        }
+
+        header nav a {
+            margin: 0 1rem;
+            color: #4a4a8a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        header nav a:hover {
+            color: #5e3baf;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            text-align: center;
+            background: #f4f4f4;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #5e3baf; /* Purple theme color */
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1:after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background-color: #5e3baf;
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .intro {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        /* Team Grid Styles */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .team-member {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%; /* Circle frame for profile picture */
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 2px gray ; /* Purple border around images */
+        }
+
+        .team-member h2 {
+            font-size: 20px;
+            color: #5e3baf; /* Purple theme color */
+            margin: 10px 0;
+        }
+
+        .team-member p {
+            font-size: 14px;
+            color: #777;
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 200px;
+            height: 200px;
+            background: rgba(94, 59, 175, 0.1); /* Light purple background accent */
+            border-radius: 50%;
+            z-index: -1;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover::before {
+            transform: scale(1.2) translate(50px, 50px);
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <a href="http://localhost/htp2/user_dashboard.php">
+                <img src="Images/Logo.png" alt="Huts for Paws Logo">
+             </a>
+        </div>
+
+        <nav>
+            <a href="http://localhost/htp2/animal.php">Adopt</a>
+            <a href="http://localhost/htp2/rehome_requests.php">Rehome</a>
+            <a href="http://localhost/htp2/dev_info.html">About Us</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Our Team</h1>
+        <p class="intro">
+            Meet the passionate individuals behind our mission. Together, we're dedicated to making a difference.
+        </p>
+        <div class="team-grid">
+            <!-- Team Member 1 -->
+            <div class="team-member">
+                <img src="Images/Abhishek_kaisar.jpg" alt="Abhishek Kaisar Abhoy">
+                <h2>Abhishek Kaisar Abhoy</h2>
+                <p>Animal Shelter Manager</p>
+            </div>
+            <!-- Team Member 2 -->
+            <div class="team-member">
+                <img src="Images/maisha.png" alt=" Maisha Tabassum">
+                <h2>Maisha Tabassum</h2>
+                <p>Veterinarian</p>
+            </div>
+            <!-- Team Member 3 -->
+            <div class="team-member">
+                <img src="Images/Sumaiyah_Kazi.jpg" alt="Sumaiyah Gazi">
+                <h2>Sumaiyah Gazi</h2>
+                <p>Coordinator</p>
+            </div>
+            <!-- Team Member 4 -->
+            <div class="team-member">
+                <img src="Images/labiba.jpeg" alt="Labiba Faiza">
+                <h2>Labiba Faiza</h2>
+                <p>Website Operator</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
